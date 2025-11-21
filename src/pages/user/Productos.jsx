@@ -1,43 +1,54 @@
-import React from "react";
-import ProductoList from "../../components/organisms/ProductoList";
-import { productosTemporales } from "../../data/productos";
-
-function Productos() {
-  return (
-    <div className="max-w-6xl mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-4 text-center">Productos</h1>
-
-      <p className="text-center text-gray-600 mb-10">
-        Descubre nuestra colección de productos de belleza coreana...
-      </p>
-
-      <ProductoList products={productosTemporales} />
-    </div>
-  );
-}
-
-export default Productos;
-/* se debe usar este cuando se conecte con el backend
-
 import { useEffect, useState } from "react";
-import ProductList from "../../components/organisms/ProductList";
 import ProductosService from "../../services/ProductosService";
+import ImagenesService from "../../services/ImagenesService";
+import ProductoList from "../../components/organisms/ProductoList";
+import "../../styles/pages/Productos.css";
 
 function Productos() {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    ProductosService.getAll()
-      .then((res) => {
-        setProductos(res.data);
-      })
-      .catch((error) => {
-        console.error("Error obteniendo productos:", error);
-      });
+    const cargarDatos = async () => {
+      try {
+        const productosRes = await ProductosService.getAll();
+        const imagenesRes = await ImagenesService.getAll();
+        const productosApi = productosRes.data;
+        const imagenesApi = imagenesRes.data;
+
+        const productosImagen = productosApi.map((p) => {
+          const imagen = imagenesApi.find(
+            (img) => img.producto.producto_id === p.producto_id
+          );
+          return {
+            ...p,
+            imagenUrl: imagen ? `/img/${imagen.urlImagen}` : "/img/no-image.png",
+          };
+        });
+      setProductos(productosImagen);
+      console.log("Productos FINAL:", productosImagen);
+      } catch (error) {
+        console.error("Error cargando datos:", error);
+      }
+    };
+    cargarDatos();
   }, []);
 
-  return <ProductList products={productos} />;
+  return (
+    <div className="productos-container">
+
+      <div className="productos-header">
+        <h1 className="productos-titulo">Productos</h1>
+        <p className="productos-descripcion">
+          Descubre nuestra colección de productos de belleza coreana, creados
+          para cuidar tu piel con fórmulas innovadoras, texturas ligeras y
+          resultados visibles. Desde limpiadores suaves hasta tratamientos
+          intensivos, cada producto está pensado para realzar tu belleza natural.
+        </p>
+      </div>
+
+      <ProductoList products={productos} />
+    </div>
+  );
 }
 
 export default Productos;
- */

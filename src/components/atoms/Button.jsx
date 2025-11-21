@@ -1,5 +1,4 @@
-import React from 'react';
-import { Button as BootstrapButton } from 'react-bootstrap';
+import React from "react";
 
 const Button = ({ text, className = "", ...props }) => {
   return (

@@ -38,6 +38,7 @@ function Layout() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/productos" element={<Productos />} />
+          <Route path="/producto/:id" element={<DetalleProducto />} />
 
           <Route path="*" element={<div>404 - Página no encontrada</div>} />
         </Routes>
