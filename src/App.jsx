@@ -11,6 +11,7 @@ import HomeAdmin from './pages/admin/HomeAdmin';
 import Productos from './pages/user/Productos';
 import Contacto from './pages/user/Contacto';
 import Nosotros from './pages/user/Nosotros';
+import DetalleProducto from './pages/user/DetalleProducto';
 
 function Layout() {
   const location = useLocation();

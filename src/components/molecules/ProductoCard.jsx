@@ -32,8 +32,12 @@ function ProductoCard({ producto }) {
       <Text className="fw-bold">${producto.precio}</Text>
 
       <Link to={`/producto/${producto.producto_id}`}>
-        <Button className="btn-detalles">Ver detalles</Button>
+        <Button
+          text="Ver detalles"
+          className="btn-detalles"
+        />
       </Link>
+
 
     </div>
   );
