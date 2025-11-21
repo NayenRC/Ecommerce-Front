@@ -1,0 +1,42 @@
+.contact-container {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.h1-c {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #7b0e67;
+}
+
+.contenedor-contacto {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* CARD GENERAL */
+.contact-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 450px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.card-title-formulario {
+    color: #7b0e67;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.p-contacto {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.centrar-mail {
+    margin: 20px 0;
+}

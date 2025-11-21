@@ -1,0 +1,78 @@
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 40px 60px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(220, 0, 255, 0.2);
+}
+
+/* TÍTULO */
+.register-title {
+    background: #f5ecf5;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    color: #7d0054;
+    margin-bottom: 30px;
+}
+
+/* LABEL */
+.register-label {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* INPUT */
+.register-input {
+    width: 100%;
+    padding: 14px 20px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+}
+
+.register-input:focus {
+    border-color: #a30089;
+}
+
+/* BOTÓN */
+.register-btn {
+    width: 150px;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.register-btn:hover {
+    background: #005ad1;
+}
+
+/* LINK ABAJO */
+.register-back {
+    color: #7d0054;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.register-back-container {
+    text-align: center;
+    margin-top: 20px;
+}

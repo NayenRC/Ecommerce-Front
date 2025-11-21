@@ -1,0 +1,124 @@
+/* ===========================================
+   CONTENEDOR GENERAL
+=========================================== */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* ===========================================
+   TARJETA PRINCIPAL
+=========================================== */
+.login-card {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 25px;
+    padding: 45px 55px;
+    box-shadow: 0 0 25px rgba(215, 90, 255, 0.35);
+    border: 1px solid #f2d4f7;
+}
+
+/* ===========================================
+   TÍTULO
+=========================================== */
+.login-title {
+    background: #f4ebf2;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 36px !important;
+    color: #7b0e67;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+/* ===========================================
+   SUBTÍTULO
+=========================================== */
+.login-subtitle {
+    font-size: 17px;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.login-register-link {
+    color: #7b0e67;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login-register-link:hover {
+    color: #d63384;
+}
+
+/* ===========================================
+   LABELS
+=========================================== */
+.login-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+/* ===========================================
+   INPUTS
+=========================================== */
+.login-input {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 35px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    margin-bottom: 18px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.login-input:focus {
+    border-color: #d44f8c;
+    box-shadow: 0 0 8px rgba(212, 79, 140, 0.3);
+}
+
+/* ===========================================
+   BOTÓN INGRESAR
+=========================================== */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background: #005fcc;
+}
+
+/* ===========================================
+   LINK OLVIDASTE CONTRASEÑA
+=========================================== */
+.login-forgot-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-forgot {
+    color: #7b0e67;
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+.login-forgot:hover {
+    color: #d63384;
+}

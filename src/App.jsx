@@ -1,8 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { publicLinks } from './data/navbarPublicLinks';
 import { adminLinks } from './data/navbarAdminLinks';
-
-
 import Navbar from './components/organisms/Navbar';
 
 // Páginas
@@ -11,9 +9,8 @@ import Login from './pages/auth/login';
 import CreateUser from './pages/auth/create-user';
 import HomeAdmin from './pages/admin/HomeAdmin';
 import Productos from './pages/user/Productos';
-import DetalleProducto from "./pages/user/DetalleProducto";
-
-
+import Contacto from './pages/user/Contacto';
+import Nosotros from './pages/user/Nosotros';
 
 function Layout() {
   const location = useLocation();
@@ -29,7 +26,7 @@ function Layout() {
       {isAdminRoute ? (
         <Navbar links={adminLinks} title="Admin Naves Front" />
       ) : (
-        shouldShowNavbarPublic && <Navbar links={publicLinks} title="Naves Front" />
+        shouldShowNavbarPublic && <Navbar links={publicLinks} title="미지 Beauty" />
       )}
 
       <main>
@@ -38,6 +35,8 @@ function Layout() {
           <Route path="/login" element={<Login />} />
           <Route path="/create-user" element={<CreateUser />} />
           <Route path="/admin/dashboard" element={<HomeAdmin />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/contacto" element={<Contacto />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/producto/:id" element={<DetalleProducto />} />
 

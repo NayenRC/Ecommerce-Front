@@ -1,13 +1,71 @@
 import React from "react";
-import { Form } from "react-bootstrap";
 
-function Input({className = "", type = "text", ...props}) {
-    const componentProps = {
-        className,
-        ...(type === "textarea" ? { as: "textarea" } : { type }),
-        ...props,
-    };
-    return <Form.Control {...componentProps} />;
-}
+const Input = ({
+    type = "text",
+    placeholder = "",
+    name = "",
+    value = "",
+    onChange = () => { },
+    required = false,
+    autoComplete = "",
+    className = "",
+    disabled = false,
+    options = [],
+    ...props
+}) => {
 
-export { Input };
+    // SELECT
+    if (type === "select") {
+        return (
+            <select
+                name={name}
+                value={value}
+                onChange={onChange}
+                required={required}
+                disabled={disabled}
+                className={className}
+                {...props}
+            >
+                {options.map((opt, i) => (
+                    <option key={i} value={opt.value}>
+                        {opt.label}
+                    </option>
+                ))}
+            </select>
+        );
+    }
+
+    // TEXTAREA
+    if (type === "textarea") {
+        return (
+            <textarea
+                name={name}
+                value={value}
+                onChange={onChange}
+                placeholder={placeholder}
+                required={required}
+                disabled={disabled}
+                className={className}
+                {...props}
+            />
+        );
+    }
+
+    // INPUT NORMAL
+    return (
+        <input
+            type={type}
+            name={name}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}
+            required={required}
+            disabled={disabled}
+            className={className}
+            {...props}
+        />
+    );
+};
+
+export default Input;
+

@@ -1,8 +1,8 @@
 import React from "react";
-import { Input } from "../atoms/Input"
+import Input from "../atoms/Input"
 import { Form } from 'react-bootstrap';
 
-function DynamicForm({inputs = []}) {
+function DynamicForm({ inputs = [] }) {
     return (
         <Form>
             {inputs.map((input, index) => (
@@ -13,7 +13,7 @@ function DynamicForm({inputs = []}) {
                 </Form.Group>
             ))}
         </Form>
-    )
+    );
 }
 
 export default DynamicForm;

@@ -1,17 +1,229 @@
-.my-navbar {
-    background-color: black;
+/* =============================
+   CONTENEDOR NAVBAR
+   ============================= */
+.navbar-container {
+    width: 100%;
+    background: #fdf7fa;
+    border-bottom: 1px solid #f6c2d8;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
-.my-navbar .navbar-brand,
-.my-navbar .nav-link {
-    color: #ffffff !important;
+.navbar-inner {
+    max-width: 1450px;
+    margin: auto;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Logo IZQ  |  menú centro  |  derecha */
 }
 
-.my-navbar .nav-link:hover {
-    color: #59adc0 !important;
+/* =============================
+   IZQUIERDA (LOGO + NOMBRE)
+   ============================= */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
 }
 
-.my-navbar {
-    padding: 0.6rem 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+.nav-logo {
+    height: 80px;
+}
+
+.nav-brand {
+    font-size: 28px;
+    font-weight: 700;
+    color: #d44f8c;
+}
+
+.nav-brand span {
+    color: #d44f8c;
+}
+
+/* =============================
+   MENÚ CENTRADO + USUARIO
+   ============================= */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    flex: 1;
+}
+
+/* Links del menú */
+.nav-link {
+    color: #333 !important;
+    text-decoration: none;
+    padding: 4px 10px;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #d63384 !important;
+    border-bottom: 2px solid #d63384;
+}
+
+.nav-link.active {
+    color: #d44f8c;
+    border-bottom: 2px solid #d44f8c;
+}
+
+/* "Hola, Pedro" */
+.nav-user {
+    margin-left: 20px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* =============================
+   DERECHA (BUSCADOR + BOTONES)
+   ============================= */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* BUSCADOR */
+.nav-search {
+    padding: 10px 16px;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid #e4d1da;
+    width: 240px;
+    outline: none;
+    font-size: 15px;
+}
+
+.nav-search::placeholder {
+    color: #b68aa0;
+}
+
+/* BOTÓN BUSCAR */
+.btn-search {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid #d44f8c;
+    background: #fff;
+    color: #d44f8c;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-search:hover {
+    background: #d44f8c;
+    color: #fff;
+}
+
+/* BOTÓN MI CUENTA */
+.btn-account {
+    padding: 8px 18px;
+    border: 1px solid #2A5CE4;
+    border-radius: 12px;
+    background: #fff;
+    color: #2A5CE4;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-account:hover {
+    background: #2A5CE4;
+    color: #fff;
+}
+
+/* BOTÓN CERRAR SESIÓN */
+.btn-logout {
+    padding: 8px 18px;
+    border: 1px solid #d44f8c;
+    border-radius: 12px;
+    background: #fff;
+    color: #d44f8c;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background: #d44f8c;
+    color: white;
+}
+
+/* ÍCONO CARRITO */
+.cart-icon {
+    border: 1px solid #d44f8c;
+    padding: 6px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
+}
+
+.cart-icon:hover {
+    background: #d44f8c;
+    color: #fff;
+}
+
+/* =============================
+   MOBILE
+   ============================= */
+.nav-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.nav-mobile {
+    display: none;
+    flex-direction: column;
+    padding: 14px;
+    background: #ffe5f0;
+}
+
+.nav-mobile.open {
+    display: flex;
+}
+
+.nav-mobile-link {
+    padding: 12px;
+    text-decoration: none;
+    color: #5A2B45;
+    font-size: 18px;
+    border-bottom: 1px solid #f6c2d8;
+}
+
+.nav-mobile-user {
+    margin: 12px 0;
+    font-weight: bold;
+}
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+@media (max-width: 1024px) {
+
+    .nav-menu,
+    .nav-right {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+        color: #d44f8c;
+    }
+
+    .navbar-inner {
+        justify-content: space-between;
+    }
 }
