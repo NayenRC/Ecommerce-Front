@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../molecules/CartItem";
 import "../../styles/components/organisms/CartSidebar.css";
@@ -20,6 +21,28 @@ const CartSidebar = () => {
   const goToCartPage = () => {
     toggleCart();
     navigate("/carrito");
+  };
+
+  // FUNCIÓN PARA INICIAR PAGO
+  const handleCheckout = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/pagos/create-preference",
+        {
+          items: cart.map(item => ({
+            title: item.nombre,
+            quantity: item.cantidad,
+            unit_price: item.precio,
+          })),
+        }
+      );
+
+      const urlPago = response.data.init_point;
+      window.location.href = urlPago; // REDIRIGE AL CHECKOUT DE MERCADO PAGO
+
+    } catch (error) {
+      console.error("Error al iniciar pago:", error);
+    }
   };
 
   return (
@@ -59,7 +82,10 @@ const CartSidebar = () => {
             Ver carrito completo
           </button>
 
-          <button className="pay-btn">Finalizar Compra</button>
+          {/*ESTE ES EL BOTÓN DE PAGO */}
+          <button className="pay-btn" onClick={handleCheckout}>
+            Finalizar Compra
+          </button>
         </div>
       </aside>
     </>
