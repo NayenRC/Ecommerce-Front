@@ -2,24 +2,29 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import Text from "../atoms/Text";
 import Url from "../atoms/Url";
-import git from "../../assets/img/gati.webp";
-import Image from "../atoms/Image";
 import "../../styles/components/organisms/Footer.css";
+
 
 function Footer() {
     return (
         <footer className="footer-section">
-            <Container className="text-center">
+            <Container className="footer-content">
+
                 <Text className="footer-text">
-                    © {new Date().getFullYear()} Allan - Todos los derechos reservados.
+                    © {new Date().getFullYear()} 미지 Beauty. Todos los derechos reservados.
                 </Text>
-                <Url href="https://github.com/AllanxSF">
-                    <Image src={git} alt="git" className="footer-icon" />
-                </Url>
+
+                <div className="footer-links">
+                    <Url href="#" className="footer-link">Aviso Legal</Url>
+                    <span className="footer-separator">|</span>
+                    <Url href="#" className="footer-link">Política de Privacidad</Url>
+                </div>
+
             </Container>
         </footer>
     );
 }
 
 export default Footer;
+
 

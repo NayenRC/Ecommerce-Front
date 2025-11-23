@@ -1,0 +1,33 @@
+.usuario-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 160px;
+    padding: 14px 20px;
+    background: #ffffffb5;
+    margin-bottom: 10px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    align-items: center;
+}
+
+.usuario-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit {
+    background: #2a71e4;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-delete {
+    background: #d63384;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}

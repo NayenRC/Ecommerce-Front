@@ -1,41 +1,129 @@
-/* Contenedor general */
+/* CONTENEDOR GENERAL */
 .home-container {
     padding-top: 40px;
     text-align: center;
 }
 
-/* Estilo base para ambas cajas */
+/* CAJAS GENERALES */
 .home-box {
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(6px);
-    border-radius: 10px;
-    padding: 5px 35px;
-    max-width: 1300px;
+    border-radius: 20px;
+    padding: 30px 40px;
+    max-width: 1400px;
     margin: 0 auto;
     box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* Caja 1 (título) separada */
-.title-box {
-    margin-bottom: 25px;
-}
-
-/* Caja 2 (texto) separada */
-.text-box {
-    margin-top: 0;
-}
-
-/* Título */
+/* TÍTULO PRINCIPAL */
 .home-title {
     font-size: 3rem;
     font-weight: 800;
     color: #7b0e67;
-    margin: 0;
 }
 
-/* Texto */
-.home-text {
-    font-size: 1.25rem;
-    line-height: 1.7;
+/* SUBTÍTULO */
+.home-subtitle {
+    font-size: 2rem;
+    color: #a20d83;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* GRID DE 2 PRODUCTOS */
+.producto-list-home {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+/* CARD DEL PRODUCTO */
+.producto-card-home {
+    width: 340px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0px 8px 25px rgba(169, 54, 145, 0.25);
+    text-align: center;
+}
+
+/* IMG DEL PRODUCTO */
+.producto-home-img {
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* TÍTULO DEL PRODUCTO */
+.producto-home-title {
+    font-size: 1.4rem;
+    font-weight: 700;
     color: #333;
+    margin: 10px 0;
+}
+
+/* PRECIO */
+.producto-home-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #a11e73;
+    margin-bottom: 20px;
+}
+
+/* BOTÓN VER DETALLES */
+.btn-detalles-home {
+    display: inline-block;
+    background: linear-gradient(135deg, #c01c86, #e44890);
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-detalles-home:hover {
+    background: linear-gradient(135deg, #b01675, #d93b84);
+}
+
+/* BOTÓN IR A PRODUCTOS */
+.home-ver-mas {
+    isplay: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #33ccd1;
+    color: #fff;
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: dotted;
+    transition: background-color 0.3s ease;
+    margin-top: 100px;
+    background: linear-gradient(180deg, #5be3e89a, #e436cf9d)
+}
+
+.home-btn-mas {
+    display: inline-block;
+    padding: 50px 45px;
+    background: linear-gradient(125deg, #45d5ff, #b94dfb);
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    border: none;
+}
+
+.home-btn-mas:hover {
+    transform: scale(1.05);
+    background-color: #e080f1;
 }

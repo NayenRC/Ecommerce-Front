@@ -24,23 +24,37 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const user = {
+            const credenciales = {
                 correoElectronico: form.correo,
                 clave: form.contrasena
             };
 
-            const res = await UserService.login(user);
+            const res = await UserService.login(credenciales);
+
+            console.log("USUARIO LOGUEADO =>", res.data);
+
 
             generarMensaje("Sesión iniciada correctamente", "success");
 
-            // guardar el usuario sin la clave
-            localStorage.setItem("user", JSON.stringify(res.data));
+            const usuario = res.data;
 
-            navigate("/"); // redirige al home
+            // Guardar usuario en localStorage
+            localStorage.setItem("user", JSON.stringify(usuario));
+
+            // 🔥 Redirección según el rol
+            // 🔥 Redirección según el rol
+            if (usuario.rol?.rol_id === 1) {
+                navigate("/admin/dashboard");   // ✔ Ruta correcta
+            } else {
+                navigate("/");
+            }
+
+
         } catch (error) {
             generarMensaje("Credenciales incorrectas", "error");
         }
     };
+
 
     // Inyecta onChange y value dentro de los inputs del loginData
     const dataConEventos = loginData.map((item) => {
