@@ -46,12 +46,32 @@
   border-radius: 20px;
   padding: 8px 20px;
   font-weight: 500;
-  transition: 0.3s ease;
+}
+
+.btn-editar {
+  margin-top: 15px;
+  background-color: #720006b6;
+  border: 1px solid #720006b6;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: 500;
 }
 
 .btn-detalles:hover {
   background-color: #b02a57;
   border-color: #b02a57;
+}
+
+.btn-editar:hover {
+  background-color: #d8030db6;
+  border-color: #d8030db6;
+}
+
+.botones-producto {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
 .categoria-producto {

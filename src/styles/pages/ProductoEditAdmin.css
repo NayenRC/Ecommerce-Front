@@ -1,0 +1,78 @@
+.admin-edit-container {
+  background: #ffe6f1;
+  min-height: 100vh;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-card {
+  background: #ffffff;
+  width: 90%;
+  max-width: 900px;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 12px rgba(255, 150, 200, 0.4);
+}
+
+.edit-card h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #7a1147;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.edit-form label {
+  font-weight: 600;
+  color: #444;
+}
+
+.edit-form input {
+  padding: 10px 15px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #fff;
+}
+
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-volver {
+  background-color: #d9534f;
+  border: none;
+  padding: 10px 25px;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.btn-volver:hover {
+  background-color: #b94441;
+}
+
+.btn-guardar {
+  background-color: #cc3366;
+  border: none;
+  padding: 10px 25px;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.btn-guardar:hover {
+  background-color: #b02a57;
+}

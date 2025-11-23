@@ -15,6 +15,15 @@ import DetalleProducto from './pages/user/DetalleProducto';
 import Footer from './components/organisms/Footer';
 import UsuarioAdmin from './pages/admin/UsuarioAdmin';
 
+
+
+
+
+
+import ProductoAdmin from "./pages/admin/ProductoAdmin";
+import ProductoEditAdmin from "./pages/admin/ProductoEditAdmin";
+
+
 function Layout() {
   const location = useLocation();
 

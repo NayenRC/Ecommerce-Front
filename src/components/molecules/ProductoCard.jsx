@@ -5,7 +5,7 @@ import Button from "../atoms/Button";
 import { Link } from "react-router-dom";
 import "../../styles/components/molecules/ProductoCard.css";
 
-function ProductoCard({ producto }) {
+function ProductoCard({ producto, admin = false }) {
   return (
     <div className="card-producto">
 
@@ -22,7 +22,9 @@ function ProductoCard({ producto }) {
       </Text>
 
       <Text className="categoria-producto">
-        <strong>Categoría:</strong> {producto.categoria?.categorias?.nombreCategorias}, {producto.categoria?.nombreCategoria}
+        <strong>Categoría:</strong>{" "}
+        {producto.categoria?.categorias?.nombreCategorias ||
+          producto.categoria?.nombreCategoria}
       </Text>
 
       <Text className="card-text-producto">
@@ -31,14 +33,18 @@ function ProductoCard({ producto }) {
 
       <Text className="fw-bold">${producto.precio}</Text>
 
-      <Link to={`/producto/${producto.producto_id}`}>
-        <Button
-          text="Ver detalles"
-          className="btn-detalles"
-        />
-      </Link>
+      <div className="botones-producto">
 
+        <Link to={`/producto/${producto.producto_id}`}>
+          <Button text="Ver detalles" className="btn-detalles" />
+        </Link>
 
+        {admin && (
+          <Link to={`/admin/producto/${producto.producto_id}`}>
+            <Button text="Editar" className="btn-editar" />
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

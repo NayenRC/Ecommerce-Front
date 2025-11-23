@@ -6,6 +6,27 @@ class ProductosService {
   getAll() {
     return axios.get(API_URL);
   }
+
+  getById(id) {
+    return axios.get(`${API_URL}/${id}`);
+  }
+
+  crear(data) {
+    return axios.post(API_URL, data);
+  }
+
+  actualizar(id, data) {
+    return axios.put(`${API_URL}/${id}`, data);
+  }
+
+  patch(id, data) {
+    return axios.patch(`${API_URL}/${id}`, data);
+  }
+
+  eliminar(id) {
+    return axios.delete(`${API_URL}/${id}`);
+  }
 }
 
 export default new ProductosService();
+
