@@ -14,6 +14,7 @@ function UsuarioAdmin() {
         try {
             const res = await UserService.getAll();
             console.log("USUARIOS DESDE EL BACKEND:", res.data);
+            console.log("🔥 LISTA COMPLETA:", res.data);
             setUsuarios(res.data);
         } catch (error) {
             console.error("Error cargando usuarios:", error);
@@ -34,19 +35,35 @@ function UsuarioAdmin() {
     const [usuarioEditando, setUsuarioEditando] = useState(null);
 
     const handleEdit = (usuario) => {
-        setUsuarioEditando(usuario); // ← abre el modal
+        console.log("🔥 USUARIO QUE LLEGA AL MODAL:", usuario);
+        setUsuarioEditando(usuario);
     };
 
     const guardarCambios = async () => {
         try {
-            await UserService.updateUser(usuarioEditando.id, usuarioEditando);
-            setUsuarioEditando(null); // cerrar modal
+            const usuarioParaEnviar = {
+                nombreUsuario: usuarioEditando.nombreUsuario,
+                correoElectronico: usuarioEditando.correoElectronico,
+                direccion: usuarioEditando.direccion,
+
+                // ✔ tu backend exige esto aunque no lo edites
+                clave: usuarioEditando.clave ?? "123456",
+
+                // ✔ tu backend exige objetos completos
+                comuna: usuarioEditando.comuna,
+                rol: usuarioEditando.rol
+            };
+
+            console.log("🔥 ENVIANDO AL BACKEND:", usuarioParaEnviar);
+
+            await UserService.updateUser(usuarioEditando.id, usuarioParaEnviar);
+
+            setUsuarioEditando(null);
             cargarUsuarios();
         } catch (error) {
             console.error("Error actualizando usuario:", error);
         }
     };
-
 
 
 
@@ -57,6 +74,7 @@ function UsuarioAdmin() {
                 onEdit={handleEdit}
                 onDelete={handleDelete}
             />
+
             {usuarioEditando && (
                 <div className="modal-overlay">
                     <div className="modal-box">
@@ -107,7 +125,7 @@ function UsuarioAdmin() {
                                 setUsuarioEditando({
                                     ...usuarioEditando,
                                     comuna: {
-                                        ...usuarioEditando.comuna,
+                                        ...usuarioEditando.comuna, // 👈 mantiene comunaId
                                         nombre_comuna: e.target.value
                                     }
                                 })
@@ -119,7 +137,10 @@ function UsuarioAdmin() {
                                 Guardar
                             </button>
 
-                            <button className="btn-delete" onClick={() => setUsuarioEditando(null)}>
+                            <button
+                                className="btn-delete"
+                                onClick={() => setUsuarioEditando(null)}
+                            >
                                 Cancelar
                             </button>
                         </div>
@@ -127,7 +148,6 @@ function UsuarioAdmin() {
                     </div>
                 </div>
             )}
-
         </div>
     );
 }
