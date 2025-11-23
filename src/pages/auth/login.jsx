@@ -37,6 +37,9 @@ const Login = () => {
             generarMensaje("Sesión iniciada correctamente", "success");
 
             const usuario = res.data;
+            console.log("USUARIO LOGUEADO =>", usuario);
+            console.log("ROL =>", usuario.rol);
+            console.log("ROL ID =>", usuario.rol?.rol_id);
 
             // Guardar usuario en localStorage
             localStorage.setItem("user", JSON.stringify(usuario));

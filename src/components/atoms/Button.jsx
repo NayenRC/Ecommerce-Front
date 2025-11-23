@@ -1,12 +1,13 @@
 import React from "react";
 
-const Button = ({ text, className = "", ...props }) => {
+const Button = ({ children, text, className = "", ...props }) => {
   return (
     <button className={className} {...props}>
-      {text}
+      {children || text}
     </button>
   );
 };
 
 export default Button;
+
 
