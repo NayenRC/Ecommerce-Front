@@ -17,6 +17,8 @@ import UsuarioAdmin from './pages/admin/UsuarioAdmin';
 import ProductoAdmin from "./pages/admin/ProductoAdmin";
 import ProductoEditAdmin from "./pages/admin/ProductoEditAdmin";
 import Config from './routes/config';
+import Carrito from './pages/user/Carrito';
+import CartSidebar from './components/organisms/CartSidebar';
 
 
 function Layout() {
