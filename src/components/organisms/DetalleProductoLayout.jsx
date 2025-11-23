@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "../atoms/Image";
 import DetalleProductoInfo from "../molecules/DetalleProductoInfo";
-import DetalleProductoNi from "../molecules/DetalleProductoNi";
+import NumItems from "../atoms/NumItems";
 
-function DetalleProductoLayout({ producto }) {
+function DetalleProductoLayout({ producto, cantidad, setCantidad, handleAddToCart }) {
   return (
     <div className="detalle-layout">
 
@@ -16,7 +16,17 @@ function DetalleProductoLayout({ producto }) {
 
       <div className="detalle-derecha">
         <DetalleProductoInfo producto={producto} />
-        <DetalleProductoNi />
+
+        <NumItems
+          options={[1, 2, 3, 4, 5]}
+          value={cantidad}
+          onChange={(e) => setCantidad(e.target.value)}
+          className="detalle-select"
+        />
+
+        <button className="btn-detalle-carrito" onClick={handleAddToCart}>
+          Añadir al carrito
+        </button>
       </div>
 
     </div>
