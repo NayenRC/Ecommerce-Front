@@ -1,0 +1,16 @@
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
+  transition: 0.2s ease;
+}
+
+.qty-btn:hover {
+  background: #ececec;
+}

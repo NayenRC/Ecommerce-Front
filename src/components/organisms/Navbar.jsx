@@ -2,23 +2,23 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import "../../styles/components/organisms/Navbar.css";
-
+import CartButton from "../atoms/CartButton";
 
 function Navbar({ links, title }) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  // 🔥 Obtener usuario desde localStorage
+  // Obtener usuario desde localStorage
   const user = JSON.parse(localStorage.getItem("user"));
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
-    navigate('/login');
+    localStorage.removeItem("user");
+    navigate("/login");
     setIsOpen(false);
   };
 
   const handleLinkClick = (e, link) => {
-    if (link.label === 'Salir') {
+    if (link.label === "Salir") {
       e.preventDefault();
       handleLogout();
     } else {
@@ -27,7 +27,7 @@ function Navbar({ links, title }) {
   };
 
   const goToLogin = () => {
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -42,13 +42,11 @@ function Navbar({ links, title }) {
 
         {/* MENÚ CENTRADO DESKTOP */}
         <div className="nav-menu">
-
-          {/* Mostrar links normales */}
           {links.map((link, i) => (
             <NavLink
               key={i}
               to={link.to}
-              onClick={(e) => link.label === 'Salir' && handleLinkClick(e, link)}
+              onClick={(e) => link.label === "Salir" && handleLinkClick(e, link)}
               className={({ isActive }) =>
                 isActive ? "nav-link active" : "nav-link"
               }
@@ -57,40 +55,35 @@ function Navbar({ links, title }) {
             </NavLink>
           ))}
 
-          {/* 🔥 Si el usuario está logueado MOSTRAR su nombre */}
           {user && (
             <span className="nav-user">
               Hola, <b>{user.nombreUsuario}</b>
             </span>
           )}
-
         </div>
 
-        {/* DERECHA: BUSCADOR + BOTONES */}
+        {/* DERECHA: BUSCADOR + CUENTA + CARRITO */}
         <div className="nav-right">
           <input type="text" placeholder="Buscar..." className="nav-search" />
           <button className="btn-search">Buscar</button>
 
-          {/* 🔥 Si NO está logueado → botón Mi Cuenta */}
           {!user && (
             <button className="btn-account" onClick={goToLogin}>
               Mi Cuenta
             </button>
           )}
 
-          {/* 🔥 Si está logueado → botón Cerrar sesión */}
           {user && (
             <button className="btn-logout" onClick={handleLogout}>
               Cerrar Sesión
             </button>
           )}
 
-          <div className="cart-icon">
-            <i className="fas fa-shopping-cart"></i> 0
-          </div>
+          {/* 🔥 BOTÓN DEL CARRITO ACTUALIZADO */}
+          <CartButton />
         </div>
 
-        {/* BOTÓN MOBILE */}
+        {/* BOTÓN MENÚ MOBILE */}
         <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
           ☰
         </div>
@@ -98,8 +91,6 @@ function Navbar({ links, title }) {
 
       {/* MENÚ MOBILE */}
       <div className={`nav-mobile ${isOpen ? "open" : ""}`}>
-
-        {/* Mostrar links normales */}
         {links.map((link, i) => (
           <NavLink
             key={i}
@@ -111,12 +102,10 @@ function Navbar({ links, title }) {
           </NavLink>
         ))}
 
-        {/* 🔥 Extra: mostrar nombre en mobile */}
         {user && (
           <p className="nav-mobile-user">Hola, {user.nombreUsuario}</p>
         )}
 
-        {/* Botón móvil */}
         {!user ? (
           <button className="nav-mobile-btn" onClick={goToLogin}>
             Mi Cuenta
@@ -126,7 +115,6 @@ function Navbar({ links, title }) {
             Cerrar Sesión
           </button>
         )}
-
       </div>
     </nav>
   );

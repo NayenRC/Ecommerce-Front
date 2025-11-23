@@ -16,6 +16,8 @@ import Footer from './components/organisms/Footer';
 import UsuarioAdmin from './pages/admin/UsuarioAdmin';
 import ProductoAdmin from "./pages/admin/ProductoAdmin";
 import ProductoEditAdmin from "./pages/admin/ProductoEditAdmin";
+import CartSidebar from "./components/organisms/CartSidebar";
+import Carrito from "./pages/user/Carrito";
 
 
 function Layout() {
@@ -36,6 +38,7 @@ function Layout() {
       )}
 
       <main>
+        <CartSidebar /> {/* SIEMPRE visible */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -45,6 +48,7 @@ function Layout() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/producto/:id" element={<DetalleProducto />} />
+          <Route path="/carrito" element={<Carrito />} />
 
           {/* Rutas Admin */}
           <Route path="/admin/dashboard" element={<HomeAdmin />} />

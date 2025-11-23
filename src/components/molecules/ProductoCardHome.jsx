@@ -1,27 +1,28 @@
 
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+import "../../styles/components/molecules/ProductoCard.css";
 
+const ProductoCard = ({ producto }) => {
+  const { addToCart } = useContext(CartContext);
 
-function ProductoCardHome({ product }) {
-    return (
-        <div className="producto-card">
-            <img
-                src={product.imagenUrl}
-                alt={product.nombre}
-                className="producto-img"
-            />
+  const handleAdd = () => {
+    addToCart({
+      productoId: producto.productoId,
+      nombre: producto.nombre,
+      precio: producto.precio,
+      imagenUrl: producto.imagenUrl, // adapta al nombre real
+    });
+  };
 
-            <h3 className="producto-nombre">{product.nombre}</h3>
+  return (
+    <div className="producto-card">
+      {/* resto de tu card... */}
+      <button className="btn-add-cart" onClick={handleAdd}>
+        Añadir al carrito
+      </button>
+    </div>
+  );
+};
 
-            <p className="producto-descripcion">{product.descripcion}</p>
-
-            <p className="producto-precio">${product.precio}</p>
-
-            <a href={`/producto/${product.producto_id}`} className="btn-detalles">
-                Ver detalles
-            </a>
-        </div>
-    );
-}
-
-export default ProductoCardHome;
+export default ProductoCard;
