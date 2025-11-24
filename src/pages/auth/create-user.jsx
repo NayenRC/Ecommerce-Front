@@ -22,29 +22,19 @@ const CreateUser = () => {
     const [loading, setLoading] = useState(false);
     const [comunas, setComunas] = useState([]);
 
-    // -------------------------------
-    // 🔵  HANDLE CHANGE
-    // -------------------------------
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    // -------------------------------
-    // 🟢  Cargar comunas desde API
-    // -------------------------------
     useEffect(() => {
         ComunaService.getAll()
             .then((res) => setComunas(res.data))
             .catch(() => generarMensaje("Error cargando comunas", "error"));
     }, []);
 
-    // -------------------------------
-    // 🔴 HANDLE SUBMIT
-    // -------------------------------
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validaciones
         if (!form.nombre || !form.correo || !form.contrasena || !form.confirmar) {
             generarMensaje("Completa los campos obligatorios", "warning");
             return;
@@ -58,7 +48,6 @@ const CreateUser = () => {
         setLoading(true);
 
         try {
-            // Objeto EXACTO que tu backend necesita
             const usuario = {
                 correoElectronico: form.correo,
                 nombreUsuario: form.nombre,
@@ -66,10 +55,10 @@ const CreateUser = () => {
                 direccion: form.direccion || "",
                 telefono: form.telefono || "",
 
-                rol: { rol_id: 2 }, // obligatorio aunque backend lo reasigne
+                rol: { rol_id: 2 },
 
                 comuna: {
-                    comuna_id: Number(form.comuna) // select obligatorio
+                    comuna_id: Number(form.comuna)
                 }
             };
 

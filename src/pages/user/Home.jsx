@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
-
 import ProductosService from "../../services/ProductosService";
 import ImagenesService from "../../services/ImagenesService";
-import ProductoListHome from "../../components/organisms/ProductoListHome";
-
 import "../../styles/pages/Home.css";
 
 function Home() {

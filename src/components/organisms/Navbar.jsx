@@ -76,11 +76,9 @@ function Navbar({ links, title }) {
             </button>
           )}
 
-          {/* 🔥 CARRITO — SIEMPRE AL FINAL */}
           {!isAdmin && <CartButton />}
         </div>
 
-        {/* MENU MOBILE */}
         <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
           ☰
         </div>

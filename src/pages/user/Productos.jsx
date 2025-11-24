@@ -7,7 +7,6 @@ import ProductoList from "../../components/organisms/ProductoList";
 import CategoriaService from "../../services/CategoriaService";
 import SubcategoriaService from "../../services/SubCategoriaService";
 import CategoriaBar from "../../components/organisms/CategoriaBar";
-
 import "../../styles/pages/Productos.css";
 
 function Productos() {

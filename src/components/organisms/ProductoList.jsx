@@ -13,6 +13,5 @@ function ProductoList({ products, admin = false }) {
   );
 }
 
-
 export default ProductoList;
 
