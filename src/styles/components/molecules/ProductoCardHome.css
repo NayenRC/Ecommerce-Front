@@ -1,68 +1,70 @@
+/* 📌 CONTENEDOR GENERAL: CARD HORIZONTAL COMO LA IMAGEN DE EJEMPLO */
 .producto-card-home {
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px 40px;
+    border-radius: 25px;
+
+    width: 750px;
+    /* 🔥 TAMAÑO CORRECTO */
+    min-height: 260px;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    margin: 20px auto;
+}
+
+/* 📌 IMAGEN A LA IZQUIERDA */
+.producto-img-box {
+    width: 240px;
+    height: auto;
+}
+
+.producto-img-box img {
     width: 100%;
-    transition: transform 0.2s ease;
-}
-
-.producto-card-home:hover {
-    transform: translateY(-5px);
-}
-
-.producto-img-home {
-    width: 80%;
-    height: 200px;
+    height: auto;
     object-fit: contain;
-    border-radius: 15px;
-    margin-bottom: 15px;
 }
 
-.producto-nombre-home {
-    font-size: 1.3rem;
+/* 📌 INFORMACIÓN AL CENTRO */
+.producto-nombre {
+    font-size: 22px;
     font-weight: 700;
     color: #7b0e67;
-    margin-bottom: 10px;
-}
-
-.producto-categoria-home {
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.producto-descripcion-home {
-    font-size: 0.95rem;
-    color: #444;
-    line-height: 1.4;
-    margin-bottom: 15px;
-    min-height: 60px;
+    margin: 0;
+    width: 200px;
 }
 
 .producto-precio-home {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 10px 0 20px 0;
+    font-size: 22px;
+    font-weight: 600;
     color: #7b0e67;
 }
 
-/* 🔥 Botón redondo con gradiente */
-.btn-detalles-home {
-    display: inline-block;
-    background: linear-gradient(45deg, #d63384, #ff7de4);
+/* 📌 BOTÓN REDONDO A LA DERECHA */
+.btn-add-home {
+    background: linear-gradient(135deg, #b30074, #ff0095);
     color: white;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 12px 35px;
     border: none;
-    border-radius: 50px;
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
     cursor: pointer;
-    transition: 0.2s ease;
-    width: 100%;
+    transition: transform .2s ease;
 }
 
-.btn-detalles-home:hover {
-    opacity: 0.9;
+.btn-add-home:hover {
+    transform: scale(1.07);
 }
