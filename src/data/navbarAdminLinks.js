@@ -3,7 +3,6 @@ export const adminLinks = [
     { to: "/admin/Usuarios", label: "Usuarios" },
     { to: "/admin/productos", label: "Productos" },
 
-    { to: "/", label: "Salir", onClick: () => handleLogout() }, // opcional
 ];
 
 export default adminLinks;

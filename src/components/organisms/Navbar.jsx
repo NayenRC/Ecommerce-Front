@@ -8,8 +8,8 @@ function Navbar({ links, title }) {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Obtener usuario desde localStorage
   const user = JSON.parse(localStorage.getItem("user"));
+  const isAdmin = user?.rol?.nombre_rol === "Administrador";
 
   const handleLogout = () => {
     localStorage.removeItem("user");
@@ -34,13 +34,13 @@ function Navbar({ links, title }) {
     <nav className="navbar-container">
       <div className="navbar-inner">
 
-        {/* IZQUIERDA: LOGO + MARCA */}
+        {/* IZQUIERDA: LOGO */}
         <div className="nav-left">
           <img src="/logo.png" alt="Logo" className="nav-logo" />
           <h1 className="nav-brand">미지 <span>Beauty</span></h1>
         </div>
 
-        {/* MENÚ CENTRADO DESKTOP */}
+        {/* MENÚ CENTRAL */}
         <div className="nav-menu">
           {links.map((link, i) => (
             <NavLink
@@ -62,34 +62,38 @@ function Navbar({ links, title }) {
           )}
         </div>
 
-        {/* DERECHA: BUSCADOR + CUENTA + CARRITO */}
+        {/* DERECHA */}
         <div className="nav-right">
-          <input type="text" placeholder="Buscar..." className="nav-search" />
-          <button className="btn-search">Buscar</button>
 
-          {!user && (
+          {/* 🔥 OCULTAR BUSCADOR Y CARRITO SI ES ADMIN */}
+          {!isAdmin && (
+            <>
+              <input type="text" placeholder="Buscar..." className="nav-search" />
+              <button className="btn-search">Buscar</button>
+            </>
+          )}
+
+          {/* BOTÓN CUENTA O SALIR */}
+          {!user ? (
             <button className="btn-account" onClick={goToLogin}>
               Mi Cuenta
             </button>
-          )}
-
-          {user && (
+          ) : (
             <button className="btn-logout" onClick={handleLogout}>
               Cerrar Sesión
             </button>
           )}
 
-          {/* 🔥 BOTÓN DEL CARRITO ACTUALIZADO */}
-          <CartButton />
+          {/* 🔥 CARRITO — SIEMPRE AL FINAL */}
+          {!isAdmin && <CartButton />}
         </div>
 
-        {/* BOTÓN MENÚ MOBILE */}
+        {/* MENU MOBILE */}
         <div className="nav-toggle" onClick={() => setIsOpen(!isOpen)}>
           ☰
         </div>
       </div>
 
-      {/* MENÚ MOBILE */}
       <div className={`nav-mobile ${isOpen ? "open" : ""}`}>
         {links.map((link, i) => (
           <NavLink

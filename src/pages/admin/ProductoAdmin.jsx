@@ -11,7 +11,6 @@ function ProductoAdmin() {
     const cargar = async () => {
       const productosRes = await ProductosService.getAll();
       const imagenesRes = await ImagenesService.getAll();
-
       const productosApi = productosRes.data;
       const imagenesApi = imagenesRes.data;
 

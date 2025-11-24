@@ -1,129 +1,112 @@
-/* CONTENEDOR GENERAL */
+/* Contenedor general */
 .home-container {
     padding-top: 40px;
     text-align: center;
+    max-width: 1200px;  /* evita que se estire */
 }
 
-/* CAJAS GENERALES */
+/* Caja blanca del título y texto */
 .home-box {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(6px);
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px 20px;
     border-radius: 20px;
-    padding: 30px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
 }
 
-/* TÍTULO PRINCIPAL */
+/* Título */
 .home-title {
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: 48px;
+    font-weight: 700;
     color: #7b0e67;
 }
 
-/* SUBTÍTULO */
-.home-subtitle {
-    font-size: 2rem;
-    color: #a20d83;
-    font-weight: 700;
+/* Subtexto */
+.home-text {
+    font-size: 20px;
+}
+
+/* WRAPPER de productos + botón redondo */
+.productos-home-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* Lista de productos */
+.productos-home-list {
+    display: flex;
+    gap: 30px;
+}
+
+/* CARD */
+.home-card {
+    width: 350px;
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* IMAGEN DEL PRODUCTO */
+.home-card-img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
     margin-bottom: 20px;
 }
 
-/* GRID DE 2 PRODUCTOS */
-.producto-list-home {
+/* Título dentro de la card */
+.home-card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #7b0e67;
+}
+
+/* Descripción */
+.home-card-desc {
+    font-size: 16px;
+    margin: 15px 0;
+    color: #555;
+}
+
+/* BOTÓN DE DETALLES */
+.home-card-btn {
+    background: #0d6efd;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* BOTÓN REDONDO */
+.home-circle-container {
     display: flex;
     justify-content: center;
-    gap: 50px;
-    margin-top: 20px;
+    align-items: center;
 }
 
-/* CARD DEL PRODUCTO */
-.producto-card-home {
-    width: 340px;
-    padding: 25px;
-    background: #ffffff;
-    border-radius: 22px;
-    box-shadow: 0px 8px 25px rgba(169, 54, 145, 0.25);
-    text-align: center;
-}
-
-/* IMG DEL PRODUCTO */
-.producto-home-img {
-    width: 210px;
-    height: 210px;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-/* TÍTULO DEL PRODUCTO */
-.producto-home-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #333;
-    margin: 10px 0;
-}
-
-/* PRECIO */
-.producto-home-price {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #a11e73;
-    margin-bottom: 20px;
-}
-
-/* BOTÓN VER DETALLES */
-.btn-detalles-home {
-    display: inline-block;
-    background: linear-gradient(135deg, #c01c86, #e44890);
-    padding: 12px 30px;
-    border-radius: 30px;
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn-detalles-home:hover {
-    background: linear-gradient(135deg, #b01675, #d93b84);
-}
-
-/* BOTÓN IR A PRODUCTOS */
-.home-ver-mas {
-    isplay: flex;
+.home-circle-btn {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #33ccd1;
-    color: #fff;
-    width: 200px;
-    height: 200px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 25px;
-    font-weight: bold;
     text-align: center;
-    text-decoration: dotted;
-    transition: background-color 0.3s ease;
-    margin-top: 100px;
-    background: linear-gradient(180deg, #5be3e89a, #e436cf9d)
-}
-
-.home-btn-mas {
-    display: inline-block;
-    padding: 50px 45px;
-    background: linear-gradient(125deg, #45d5ff, #b94dfb);
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: 500;
-    border-radius: 100px;
+    font-size: 26px;
+    font-weight: 700;
     text-decoration: none;
-    transition: 0.3s ease;
-    border: none;
+    color: white;
+    background: linear-gradient(135deg, #6bd0ff, #d34df1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
 }
 
-.home-btn-mas:hover {
+.home-circle-btn:hover {
     transform: scale(1.05);
-    background-color: #e080f1;
 }

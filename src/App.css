@@ -5,3 +5,26 @@ body {
   background-position: center;
   background-attachment: fixed;
 }
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-container {
+  flex: 1;
+  /* Hace que el contenido empuje el footer al final */
+}
+
+footer {
+  margin-top: auto;
+  /* Se pega al final */
+}

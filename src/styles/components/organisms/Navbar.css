@@ -227,3 +227,9 @@
         justify-content: space-between;
     }
 }
+
+/* Oculta buscador + carrito solo cuando es admin, sin romper el layout */
+.nav-admin-hide {
+    visibility: hidden !important;
+    pointer-events: none !important;
+}

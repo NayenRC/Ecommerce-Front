@@ -24,13 +24,25 @@ function Home() {
           const imagen = imagenesApi.find(
             (img) => img.producto.producto_id === p.producto_id
           );
+
           return {
             ...p,
-            imagenUrl: imagen ? `/img/${imagen.urlImagen}` : "/img/no-image.png",
+            imagenUrl: imagen
+              ? `/img/${imagen.urlImagen}`
+              : "/img/no-image.png",
+
+            // 🔥 CORRECTO según tu backend:
+            nombre: p.nombreProducto || "Producto sin nombre",
+            descripcion: p.descripcionProducto || "Descripción no disponible",
           };
         });
 
-        setProductos(productosImagen.slice(0, 2)); // 🔥 Solo dos productos destacados
+        const conImagen = productosImagen.filter(
+          (p) => p.imagenUrl !== "/img/no-image.png"
+        );
+
+        setProductos(conImagen.slice(0, 2));
+
       } catch (error) {
         console.error("Error cargando productos:", error);
       }
@@ -39,8 +51,9 @@ function Home() {
     cargarDatos();
   }, []);
 
+
   return (
-    <Container fluid className="home-container">
+    <Container className="home-container">
 
       {/* TÍTULO */}
       <div className="home-box">
@@ -57,16 +70,35 @@ function Home() {
       </div>
 
       {/* PRODUCTOS DESTACADOS */}
-      <div className="home-box">
-        <h2 className="home-subtitle">Productos Destacados</h2>
+      <div className="productos-home-wrapper">
 
-        <ProductoListHome products={productos} />
+        <div className="productos-home-list">
+          {productos.map((p) => (
+            <div key={p.producto_id} className="home-card">
 
-        <div className="home-ver-mas">
-          <a href="/productos" className="home-btn-mas">
-            Ir a productos &gt;
+              <img src={p.imagenUrl} alt={p.nombre} className="home-card-img" />
+
+              <h3 className="home-card-title">{p.nombre}</h3>
+
+              <p className="home-card-desc">
+                {p.descripcion?.slice(0, 160)}
+              </p>
+
+              <a className="home-card-btn" href={`/producto/${p.producto_id}`}>
+                Ir a detalles
+              </a>
+
+            </div>
+          ))}
+        </div>
+
+        {/* BOTÓN REDONDO */}
+        <div className="home-circle-container">
+          <a href="/productos" className="home-circle-btn">
+            Ir a productos <br /> &gt;
           </a>
         </div>
+
       </div>
 
     </Container>

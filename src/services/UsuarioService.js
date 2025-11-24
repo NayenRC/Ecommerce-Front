@@ -24,6 +24,16 @@ class UserService {
     getById(id) {
         return axios.get(`${API_URL}/${id}`);
     }
+
+    // 🔥 ACTUALIZAR USUARIO (lo que te falta)
+    updateUser(id, data) {
+        return axios.put(`${API_URL}/${id}`, data);
+    }
+
+    // 🔥 ELIMINAR USUARIO (seguro también lo necesitarás)
+    deleteUser(id) {
+        return axios.delete(`${API_URL}/${id}`);
+    }
 }
 
 export default new UserService();

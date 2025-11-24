@@ -45,6 +45,21 @@ export default function ProductoEditAdmin() {
     navigate("/admin/productos");
   };
 
+  const eliminar = async () => {
+  const confirmar = confirm("¿Seguro que deseas eliminar este producto? Esta acción no se puede deshacer.");
+
+  if (!confirmar) return;
+
+  try {
+    await ProductosService.eliminar(id);
+    alert("Producto eliminado correctamente.");
+    navigate("/admin/productos");
+  } catch (error) {
+    console.error("Error al eliminar:", error);
+    alert("Hubo un problema al eliminar el producto.");
+  }
+};
+
   if (cargando) return <p>Cargando...</p>;
 
   return (
@@ -53,6 +68,7 @@ export default function ProductoEditAdmin() {
         producto={producto}
         handleChange={handleChange}
         guardar={guardar}
+        eliminar={eliminar} 
         volver={() => navigate("/admin/productos")}
       />
     </div>
