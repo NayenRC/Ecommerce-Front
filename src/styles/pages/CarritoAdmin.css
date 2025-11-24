@@ -1,0 +1,92 @@
+/* CONTENEDOR GENERAL */
+.carritos-container {
+    width: 90%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* TÍTULO */
+.carritos-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #b93480;
+}
+
+/* TARJETAS DE MÉTRICAS */
+.metricas-carritos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.metric-card-admin {
+    width: 260px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff8ccf, #ff70b8);
+    color: white;
+    border-radius: 18px;
+    box-shadow: 0 4px 14px rgba(255, 112, 180, 0.4);
+    text-align: center;
+}
+
+.metric-card-admin p {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.metric-card-admin h2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* TABLA */
+.carritos-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.carritos-header, .carritos-row {
+    display: grid;
+    grid-template-columns: 80px 180px 180px 120px 120px 150px;
+    padding: 14px 12px;
+    align-items: center;
+}
+
+.carritos-header {
+    background: #ff8ccf;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.carritos-row {
+    background: #ffeaf7;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.carritos-row span {
+    font-size: 15px;
+}
+
+/* BOTÓN ELIMINAR */
+.btn-delete {
+    background: transparent;
+    border: 2px solid #ff4081;
+    color: #ff4081;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-delete:hover {
+    background: #ff4081;
+    color: white;
+}

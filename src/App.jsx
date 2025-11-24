@@ -19,6 +19,7 @@ import ProductoEditAdmin from "./pages/admin/ProductoEditAdmin";
 import Config from './routes/config';
 import Carrito from './pages/user/Carrito';
 import CartSidebar from './components/organisms/CartSidebar';
+import CarritoAdmin from './pages/admin/CarritoAdmin';
 
 
 function Layout() {
@@ -62,6 +63,7 @@ function Layout() {
               <UsuarioAdmin />
             </Config>
           } />
+          
 
           <Route path="/admin/productos" element={
             <Config>
@@ -74,6 +76,13 @@ function Layout() {
               <ProductoEditAdmin/>
             </Config>
           } />
+
+          <Route path="/admin/carritos" element={
+            <Config>
+              <CarritoAdmin />
+            </Config>
+          } />
+
 
           <Route path="*" element={<div>404 - Página no encontrada</div>} />
         </Routes>
