@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import BuscarInput from "../atoms/BuscarInput";
 import ButtonBuscar from "../atoms/ButtonBuscar";

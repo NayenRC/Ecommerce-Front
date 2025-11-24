@@ -1,3 +1,5 @@
+import React from "react";
+
 function BuscarInput({ value, onChange, onKeyDown }) {
   return (
     <input

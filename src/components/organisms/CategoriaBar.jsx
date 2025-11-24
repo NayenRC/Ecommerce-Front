@@ -1,3 +1,4 @@
+import React from "react";
 import CategoriaFilter from "../molecules/CategoriaFilter";
 import "../../styles/components/organisms/CategoriaBar.css";
 
