@@ -1,11 +1,43 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../../components/molecules/CartItem";
+import CarritoService from "../../services/CarritoService";
 import "../../styles/pages/Carrito.css";
 
 const Carrito = () => {
   const { cart, totalPrice, increase, decrease, removeFromCart } =
     useContext(CartContext);
+
+  
+  const handleFinalizarCompra = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+      alert("Debes iniciar sesión para comprar");
+      return;
+    }
+
+    // Construimos el carrito
+    const nuevoCarrito = {
+      usuario: {
+        id: user.id,
+      },
+      fechaCreacion: new Date().toISOString(),
+      estado: { estadoId: 1 },          // Pendiente
+      metodoPago: { metodoPagoId: 1 },  // Sin pago real
+      detalleCarrito: JSON.stringify(cart),
+      total: totalPrice,
+    };
+
+    try {
+      await CarritoService.create(nuevoCarrito);
+      alert("Compra registrada correctamente.");
+    } catch (error) {
+      console.error(error);
+      alert("Ocurrió un error al guardar el carrito");
+    }
+  };
+  
 
   return (
     <div className="cart-page">
@@ -32,7 +64,11 @@ const Carrito = () => {
             <p>
               Total: <strong>${totalPrice}</strong>
             </p>
-            <button className="cart-page-pay">Finalizar compra</button>
+
+          
+            <button className="cart-page-pay" onClick={handleFinalizarCompra}>
+              Finalizar compra
+            </button>
           </div>
         </>
       )}

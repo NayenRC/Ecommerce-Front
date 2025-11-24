@@ -7,6 +7,10 @@ class CarritoService {
         return axios.get(API_URL);
     }
 
+    create(carrito) {
+        return axios.post(API_URL, carrito);
+    }
+
     delete(id) {
         return axios.delete(`${API_URL}/${id}`);
     }
