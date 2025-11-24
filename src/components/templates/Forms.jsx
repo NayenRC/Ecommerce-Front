@@ -6,7 +6,7 @@ import Text from "../atoms/Text";
 
 function Forms({ content = [], className = "" }) {
     return (
-        <div className={className}>
+         <div className={className}>
             {content.map((item, index) => {
 
                 if (item.type === "text") {

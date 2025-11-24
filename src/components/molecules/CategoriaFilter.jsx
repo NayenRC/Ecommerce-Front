@@ -1,6 +1,7 @@
+import React from "react";
 import Input from "../atoms/Input";
 
-export default function CategoriaFilter({
+function CategoriaFilter({
   categorias,
   subcategorias,
   categoriaSeleccionada,
@@ -47,3 +48,5 @@ export default function CategoriaFilter({
     </div>
   );
 }
+
+export default CategoriaFilter;

@@ -42,3 +42,21 @@
   line-height: 1.6;
 }
 
+.btn-limpiar-search {
+  margin: 10px 40px;
+  padding: 6px 14px;
+  background: #ffe5f0;
+  border: 1px solid #d44f8c;
+  color: #d44f8c;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn-limpiar-search:hover {
+  background: #d44f8c;
+  color: white;
+}
+
+

@@ -13,7 +13,6 @@ body {
     background-attachment: fixed;
 }
 
-/* Fondo suave */
 body::before {
     content: "";
     position: fixed;
@@ -22,9 +21,6 @@ body::before {
     width: 100%;
     height: 100%;
     background: rgba(255, 255, 255, 0.55);
-    /* Ajusta la opacidad */
     backdrop-filter: blur(0.3px);
-    /* Más suave aún */
     z-index: -1;
-    /* NO tapa el contenido */
 }

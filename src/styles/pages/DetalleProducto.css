@@ -23,8 +23,6 @@
   box-shadow: none;
 }
 
-/*selector cantidad*/
-
 .detalle-select {
   width: 100%;
   padding: 10px;
@@ -41,8 +39,6 @@
   border-color: #ff5ca8;
   box-shadow: 0 0 5px rgba(255, 92, 168, 0.4);
 }
-
-/*general styles for detalle producto page*/
 
 .detalle-layout {
   display: grid;
@@ -67,7 +63,6 @@
   flex-direction: column;
   justify-content: center;
 }
-/*Detalle Producto Page Styles*/
 
 .detalle-derecha h2 {
   font-size: 32px;
@@ -89,7 +84,6 @@
   margin-top: 20px;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .detalle-layout {
     grid-template-columns: 1fr;

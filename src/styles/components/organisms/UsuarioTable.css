@@ -15,7 +15,6 @@
     color: #b83280;
 }
 
-/* TABLA */
 .usuario-table {
     width: 100%;
     border-collapse: collapse;
@@ -47,7 +46,6 @@
     background: #fafafa;
 }
 
-/* ACCIONES */
 .acciones-col {
     display: flex;
     gap: 10px;

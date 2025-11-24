@@ -8,7 +8,7 @@ function NosotrosContent() {
             <h1 className="nosotros-main-title">Nosotros</h1>
 
             <NosotrosSection
-                image="/public/nosotros.webp"
+                image="/img/nosotros.webp"
                 title="Nuestra Historia"
                 paragraphs={[
                     "Somos un grupo de estudiantes universitarios que, entre clases y sueños, decidimos acercar la magia del K-Beauty a todas las personas.",
@@ -18,7 +18,7 @@ function NosotrosContent() {
 
             <NosotrosSection
                 reverse={true}
-                image="/public/nosotros2.webp"
+                image="/img/nosotros2.webp"
                 title="Hacemos la belleza más cercana"
                 paragraphs={[
                     "Queremos que cada persona descubra su mejor versión con productos auténticos, innovadores y accesibles.",
@@ -27,7 +27,7 @@ function NosotrosContent() {
             />
 
             <NosotrosSection
-                image="/public/nosotros3.webp"
+                image="/img/nosotros3.webp"
                 title="Este es solo el comienzo"
                 paragraphs={[
                     "En Miji Beauty soñamos en grande. Queremos que cada persona pueda disfrutar del K-Beauty de forma sencilla.",

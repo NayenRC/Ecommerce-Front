@@ -3,7 +3,6 @@ import { publicLinks } from './data/navbarPublicLinks';
 import { adminLinks } from './data/navbarAdminLinks';
 import Navbar from './components/organisms/Navbar';
 
-// Páginas
 import Home from './pages/user/Home';
 import Login from './pages/auth/login';
 import CreateUser from './pages/auth/create-user';
@@ -24,10 +23,7 @@ import CarritoAdmin from './pages/admin/CarritoAdmin';
 
 function Layout() {
   const location = useLocation();
-
-  // Rutas donde NO se muestra el NavbarPublic
   const hideNavbarRoutes = ['/create-user'];
-
   const isAdminRoute = location.pathname.startsWith('/admin');
   const shouldShowNavbarPublic = !isAdminRoute && !hideNavbarRoutes.includes(location.pathname);
 
@@ -40,7 +36,7 @@ function Layout() {
       )}
 
       <main>
-        <CartSidebar /> {/* SIEMPRE visible */}
+        <CartSidebar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -50,8 +46,6 @@ function Layout() {
           <Route path="/productos" element={<Productos />} />
           <Route path="/producto/:id" element={<DetalleProducto />} />
           <Route path="/carrito" element={<Carrito />} />
-
-          {/* Rutas Admin */}
           <Route path="/admin/dashboard" element={
             <Config>
               <HomeAdmin />

@@ -16,7 +16,6 @@
     flex-wrap: wrap;
 }
 
-/* CARD GENERAL */
 .contact-card {
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(6px);
@@ -41,7 +40,6 @@
     margin: 20px 0;
 }
 
-/* --- Inputs y Textareas estilo moderno --- */
 .contact-card input,
 .contact-card textarea {
     width: 100%;
@@ -55,14 +53,12 @@
     transition: all 0.25s ease;
 }
 
-/* --- Placeholder suave --- */
 .contact-card input::placeholder,
 .contact-card textarea::placeholder {
     color: #b7b7b7;
     font-size: 15px;
 }
 
-/* --- Focus elegante --- */
 .contact-card input:focus,
 .contact-card textarea:focus {
     border-color: #7b0e67;
@@ -70,13 +66,11 @@
     outline: none;
 }
 
-/* --- Textarea más bonito --- */
 .contact-card textarea {
     resize: none;
     height: 110px;
 }
 
-/* --- Labels estilo más limpio --- */
 .contact-card label {
     font-weight: 600;
     color: #4a4a4a;
@@ -85,7 +79,6 @@
     margin-bottom: 4px;
 }
 
-/* --- Botón Enviar --- */
 .contact-card button {
     background: #1e73ff;
     color: white;
@@ -101,17 +94,13 @@
 
 .contact-card button {
     background-color: #1e73ff !important;
-    /* color azul */
     color: #ffffff !important;
-    /* texto blanco visible */
     border: none !important;
     font-weight: 600 !important;
     opacity: 1 !important;
     mix-blend-mode: normal !important;
     isolation: isolate !important;
-    /* evita que el blend con el fondo desaparezca el texto */
     position: relative !important;
-    /* asegura que no hereda filtros */
     z-index: 5 !important;
 }
 

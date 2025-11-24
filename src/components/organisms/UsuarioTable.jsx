@@ -5,7 +5,6 @@ import "../../styles/components/organisms/UsuarioTable.css";
 function UsuarioTable({ usuarios, onEdit, onDelete }) {
     return (
         <div className="usuario-table-container">
-
             <h1 className="usuario-admin-title">Usuarios Registrados</h1>
 
             <table className="usuario-table">
@@ -33,13 +32,8 @@ function UsuarioTable({ usuarios, onEdit, onDelete }) {
                                 <td>{u.id}</td>
                                 <td>{u.nombreUsuario}</td>
                                 <td>{u.correoElectronico}</td>
-
-                                {/* ✔️ Mostrar comuna correctamente */}
                                 <td>{u.comuna?.nombre_comuna ?? "—"}</td>
-
-
                                 <td>{u.direccion || "—"}</td>
-
                                 <td className="acciones-col">
                                     <button
                                         className="btn-edit"

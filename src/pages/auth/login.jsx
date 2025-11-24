@@ -7,7 +7,6 @@ import { generarMensaje } from "../../utils/GenerarMensaje";
 import "../../styles/pages/Login.css";
 import loginData from "./data/loginData";
 
-
 const Login = () => {
     const [form, setForm] = useState({
         correo: "",
@@ -40,26 +39,18 @@ const Login = () => {
             console.log("USUARIO LOGUEADO =>", usuario);
             console.log("ROL =>", usuario.rol);
             console.log("ROL ID =>", usuario.rol?.rol_id);
-
-            // Guardar usuario en localStorage
             localStorage.setItem("user", JSON.stringify(usuario));
-
-            // 🔥 Redirección según el rol
-            // 🔥 Redirección según el rol
             if (usuario.rol?.rol_id === 1) {
-                navigate("/admin/dashboard");   // ✔ Ruta correcta
+                navigate("/admin/dashboard"); 
             } else {
                 navigate("/");
             }
-
 
         } catch (error) {
             generarMensaje("Credenciales incorrectas", "error");
         }
     };
 
-
-    // Inyecta onChange y value dentro de los inputs del loginData
     const dataConEventos = loginData.map((item) => {
         if (item.type === "inputs") {
             item.inputs = item.inputs.map((inp) => ({

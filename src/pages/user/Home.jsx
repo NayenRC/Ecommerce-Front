@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
-
 import ProductosService from "../../services/ProductosService";
 import ImagenesService from "../../services/ImagenesService";
-import ProductoListHome from "../../components/organisms/ProductoListHome";
-
 import "../../styles/pages/Home.css";
 
 function Home() {
@@ -16,7 +13,6 @@ function Home() {
       try {
         const productosRes = await ProductosService.getAll();
         const imagenesRes = await ImagenesService.getAll();
-
         const productosApi = productosRes.data;
         const imagenesApi = imagenesRes.data;
 
@@ -31,7 +27,6 @@ function Home() {
               ? `/img/${imagen.urlImagen}`
               : "/img/no-image.png",
 
-            // 🔥 CORRECTO según tu backend:
             nombre: p.nombreProducto || "Producto sin nombre",
             descripcion: p.descripcionProducto || "Descripción no disponible",
           };
@@ -55,12 +50,10 @@ function Home() {
   return (
     <Container className="home-container">
 
-      {/* TÍTULO */}
       <div className="home-box">
         <h1 className="home-title">Bienvenid@s a 미지 Beauty</h1>
       </div>
 
-      {/* TEXTO */}
       <div className="home-box">
         <p className="home-text">
           En <strong>Miji Beauty</strong> creemos que la belleza coreana es más que un estilo,
@@ -69,7 +62,6 @@ function Home() {
         </p>
       </div>
 
-      {/* PRODUCTOS DESTACADOS */}
       <div className="productos-home-wrapper">
 
         <div className="productos-home-list">
@@ -92,13 +84,11 @@ function Home() {
           ))}
         </div>
 
-        {/* BOTÓN REDONDO */}
         <div className="home-circle-container">
           <a href="/productos" className="home-circle-btn">
             Ir a productos <br /> &gt;
           </a>
         </div>
-
       </div>
 
     </Container>

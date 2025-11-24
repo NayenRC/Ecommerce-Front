@@ -13,8 +13,6 @@ function UsuarioAdmin() {
     const cargarUsuarios = async () => {
         try {
             const res = await UserService.getAll();
-            console.log("USUARIOS DESDE EL BACKEND:", res.data);
-            console.log("🔥 LISTA COMPLETA:", res.data);
             setUsuarios(res.data);
         } catch (error) {
             console.error("Error cargando usuarios:", error);
@@ -23,7 +21,6 @@ function UsuarioAdmin() {
 
     const handleDelete = async (id) => {
         if (!window.confirm("¿Seguro que deseas eliminar este usuario?")) return;
-
         try {
             await UserService.deleteUser(id);
             cargarUsuarios();
@@ -33,9 +30,7 @@ function UsuarioAdmin() {
     };
 
     const [usuarioEditando, setUsuarioEditando] = useState(null);
-
     const handleEdit = (usuario) => {
-        console.log("🔥 USUARIO QUE LLEGA AL MODAL:", usuario);
         setUsuarioEditando(usuario);
     };
 
@@ -45,27 +40,18 @@ function UsuarioAdmin() {
                 nombreUsuario: usuarioEditando.nombreUsuario,
                 correoElectronico: usuarioEditando.correoElectronico,
                 direccion: usuarioEditando.direccion,
-
-                // ✔ tu backend exige esto aunque no lo edites
                 clave: usuarioEditando.clave ?? "123456",
-
-                // ✔ tu backend exige objetos completos
                 comuna: usuarioEditando.comuna,
                 rol: usuarioEditando.rol
             };
 
-            console.log("🔥 ENVIANDO AL BACKEND:", usuarioParaEnviar);
-
             await UserService.updateUser(usuarioEditando.id, usuarioParaEnviar);
-
             setUsuarioEditando(null);
             cargarUsuarios();
         } catch (error) {
             console.error("Error actualizando usuario:", error);
         }
     };
-
-
 
     return (
         <div className="usuario-admin-container">
@@ -125,7 +111,7 @@ function UsuarioAdmin() {
                                 setUsuarioEditando({
                                     ...usuarioEditando,
                                     comuna: {
-                                        ...usuarioEditando.comuna, // 👈 mantiene comunaId
+                                        ...usuarioEditando.comuna,
                                         nombre_comuna: e.target.value
                                     }
                                 })

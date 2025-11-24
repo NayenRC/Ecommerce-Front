@@ -1,11 +1,9 @@
-/* Contenedor general */
 .home-container {
     padding-top: 40px;
     text-align: center;
-    max-width: 1200px;  /* evita que se estire */
+    max-width: 1200px; 
 }
 
-/* Caja blanca del título y texto */
 .home-box {
     background: rgba(255, 255, 255, 0.7);
     padding: 25px 20px;
@@ -13,19 +11,16 @@
     margin-bottom: 30px;
 }
 
-/* Título */
 .home-title {
     font-size: 48px;
     font-weight: 700;
     color: #7b0e67;
 }
 
-/* Subtexto */
 .home-text {
     font-size: 20px;
 }
 
-/* WRAPPER de productos + botón redondo */
 .productos-home-wrapper {
     display: flex;
     justify-content: space-between;
@@ -33,13 +28,11 @@
     margin-top: 40px;
 }
 
-/* Lista de productos */
 .productos-home-list {
     display: flex;
     gap: 30px;
 }
 
-/* CARD */
 .home-card {
     width: 350px;
     background: white;
@@ -49,7 +42,6 @@
     text-align: center;
 }
 
-/* IMAGEN DEL PRODUCTO */
 .home-card-img {
     width: 180px;
     height: 180px;
@@ -57,21 +49,18 @@
     margin-bottom: 20px;
 }
 
-/* Título dentro de la card */
 .home-card-title {
     font-size: 22px;
     font-weight: 600;
     color: #7b0e67;
 }
 
-/* Descripción */
 .home-card-desc {
     font-size: 16px;
     margin: 15px 0;
     color: #555;
 }
 
-/* BOTÓN DE DETALLES */
 .home-card-btn {
     background: #0d6efd;
     color: white;
@@ -83,7 +72,6 @@
     font-weight: 600;
 }
 
-/* BOTÓN REDONDO */
 .home-circle-container {
     display: flex;
     justify-content: center;

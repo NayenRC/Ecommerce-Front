@@ -11,6 +11,12 @@ class ProductosService {
     return axios.get(`${API_URL}/${id}`);
   }
 
+  buscarPorNombre(nombre) {
+    return axios.get(`${API_URL}/buscar/nombre`, {
+      params: { nombre }
+    });
+  }
+  
   crear(data) {
     return axios.post(API_URL, data);
   }

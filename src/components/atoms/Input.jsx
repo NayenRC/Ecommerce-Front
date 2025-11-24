@@ -14,7 +14,6 @@ const Input = ({
     ...props
 }) => {
 
-    // SELECT
     if (type === "select") {
         return (
             <select
@@ -35,7 +34,6 @@ const Input = ({
         );
     }
 
-    // TEXTAREA
     if (type === "textarea") {
         return (
             <textarea
@@ -51,7 +49,6 @@ const Input = ({
         );
     }
 
-    // INPUT NORMAL
     return (
         <input
             type={type}

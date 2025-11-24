@@ -1,6 +1,3 @@
-/* =============================
-   CONTENEDOR NAVBAR
-   ============================= */
 .navbar-container {
     width: 100%;
     background: #fdf7fa;
@@ -17,12 +14,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Logo IZQ  |  menú centro  |  derecha */
 }
 
-/* =============================
-   IZQUIERDA (LOGO + NOMBRE)
-   ============================= */
 .nav-left {
     display: flex;
     align-items: center;
@@ -44,9 +37,6 @@
     color: #d44f8c;
 }
 
-/* =============================
-   MENÚ CENTRADO + USUARIO
-   ============================= */
 .nav-menu {
     display: flex;
     align-items: center;
@@ -55,7 +45,6 @@
     flex: 1;
 }
 
-/* Links del menú */
 .nav-link {
     color: #333 !important;
     text-decoration: none;
@@ -73,7 +62,6 @@
     border-bottom: 2px solid #d44f8c;
 }
 
-/* "Hola, Pedro" */
 .nav-user {
     margin-left: 20px;
     font-size: 17px;
@@ -81,9 +69,6 @@
     color: #333;
 }
 
-/* =============================
-   DERECHA (BUSCADOR + BOTONES)
-   ============================= */
 .nav-right {
     display: flex;
     align-items: center;
@@ -91,7 +76,6 @@
     flex-shrink: 0;
 }
 
-/* BUSCADOR */
 .nav-search {
     padding: 10px 16px;
     border-radius: 20px;
@@ -106,7 +90,6 @@
     color: #b68aa0;
 }
 
-/* BOTÓN BUSCAR */
 .btn-search {
     padding: 8px 18px;
     border-radius: 20px;
@@ -123,7 +106,6 @@
     color: #fff;
 }
 
-/* BOTÓN MI CUENTA */
 .btn-account {
     padding: 8px 18px;
     border: 1px solid #2A5CE4;
@@ -140,7 +122,6 @@
     color: #fff;
 }
 
-/* BOTÓN CERRAR SESIÓN */
 .btn-logout {
     padding: 8px 18px;
     border: 1px solid #d44f8c;
@@ -157,7 +138,6 @@
     color: white;
 }
 
-/* ÍCONO CARRITO */
 .cart-icon {
     border: 1px solid #d44f8c;
     padding: 6px 14px;
@@ -175,9 +155,6 @@
     color: #fff;
 }
 
-/* =============================
-   MOBILE
-   ============================= */
 .nav-toggle {
     display: none;
     cursor: pointer;
@@ -208,9 +185,6 @@
     font-weight: bold;
 }
 
-/* =============================
-   RESPONSIVE
-   ============================= */
 @media (max-width: 1024px) {
 
     .nav-menu,
@@ -228,7 +202,6 @@
     }
 }
 
-/* Oculta buscador + carrito solo cuando es admin, sin romper el layout */
 .nav-admin-hide {
     visibility: hidden !important;
     pointer-events: none !important;

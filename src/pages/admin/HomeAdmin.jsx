@@ -14,11 +14,8 @@ function HomeAdmin() {
 
   const cargarMetricas = async () => {
     try {
-      // 🔹 Cargar usuarios
       const usuariosRes = await UserService.getAll();
       setTotalUsuarios(usuariosRes.data.length);
-
-      // 🔹 Cargar productos
       const productosRes = await ProductosService.getAll();
       setTotalProductos(productosRes.data.length);
 
@@ -29,20 +26,13 @@ function HomeAdmin() {
 
   return (
     <div className="admin-home-container">
-
-      {/* TÍTULO */}
       <h1 className="admin-title">Panel de Administración</h1>
-
-      {/* MÉTRICAS */}
       <div className="metricas-container">
-
-        {/* 🔥 TARJETA: Usuarios */}
         <div className="metric-card">
           <p className="metric-label">Usuarios Registrados</p>
           <h2 className="metric-number">{totalUsuarios}</h2>
         </div>
 
-        {/* 🔥 TARJETA: Productos */}
         <div className="metric-card">
           <p className="metric-label">Productos Registrados</p>
           <h2 className="metric-number">{totalProductos}</h2>

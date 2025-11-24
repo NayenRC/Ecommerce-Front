@@ -1,4 +1,3 @@
-
 import React from "react";
 import NosotrosContent from "../../components/organisms/NosotrosContent";
 import "../../styles/pages/Nosotros.css";

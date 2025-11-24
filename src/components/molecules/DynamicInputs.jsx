@@ -16,7 +16,7 @@ function DynamicInputs({ Inputs = [], className = "" }) {
                         autoComplete={input.autoComplete}
                         disabled={input.disabled}
                         className={input.className}
-                        options={input.options || []}   // 👈 NECESARIO PARA EL SELECT
+                        options={input.options || []} 
                     />
                 </div>
             ))}

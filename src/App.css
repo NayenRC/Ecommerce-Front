@@ -21,10 +21,8 @@ body {
 
 .home-container {
   flex: 1;
-  /* Hace que el contenido empuje el footer al final */
 }
 
 footer {
   margin-top: auto;
-  /* Se pega al final */
 }
