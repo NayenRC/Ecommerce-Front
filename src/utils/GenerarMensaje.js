@@ -1,43 +1,60 @@
 let container = null;
 
-export const generarMensaje = (mensaje, tipo = 'info', duracion = 3000) => {
+export const generarMensaje = (mensaje, tipo = "info", duracion = 3000) => {
+    // Crear contenedor una sola vez
     if (!container) {
-        container = document.createElement('div');
-        container.className = 'fixed top-4 left-10 z-50 space-y-3';
+        container = document.createElement("div");
+        container.style.position = "fixed";
+        container.style.top = "180px"; // 👉 MÁS ABAJO DEL NAVBAR
+        container.style.left = "50%";
+        container.style.transform = "translateX(-50%)";
+        container.style.zIndex = "9999";
+        container.style.display = "flex";
+        container.style.flexDirection = "column";
+        container.style.alignItems = "center";
+        container.style.gap = "14px";
         document.body.appendChild(container);
     }
 
-    const toast = document.createElement('div');
-    toast.className = getToastClasses(tipo);
+    // Crear el toast
+    const toast = document.createElement("div");
+    toast.style.padding = "16px 25px";
+    toast.style.minWidth = "260px";
+    toast.style.textAlign = "center";
+    toast.style.borderRadius = "12px";
+    toast.style.fontSize = "15px";
+    toast.style.fontWeight = "600";
+    toast.style.color = "white";
+    toast.style.boxShadow = "0 6px 18px rgba(0,0,0,0.15)";
+    toast.style.opacity = "0";
+    toast.style.transform = "translateY(-20px)";
+    toast.style.transition = "all 0.35s ease";
+
+    const colores = {
+        success: "#56ca80ff",
+        error: "#d85858ff",
+        warning: "#d97706",
+        info: "#2563eb",
+    };
+
+    toast.style.background = colores[tipo] || colores.info;
     toast.textContent = mensaje;
 
     container.appendChild(toast);
 
-    requestAnimationFrame(() => {
-        toast.classList.add('translate-x-0', 'opacity-100');
-    });
-
+    // Animación de entrada
     setTimeout(() => {
-        toast.classList.replace('translate-x-0', 'translate-x-full');
-        toast.classList.replace('opacity-100', 'opacity-0');
-        toast.addEventListener('transitionend', () => {
-            if (toast.parentNode) toast.parentNode.removeChild(toast);
-        });
+        toast.style.opacity = "1";
+        toast.style.transform = "translateY(0)";
+    }, 10);
+
+    // Animación salida
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(-20px)";
+        toast.addEventListener("transitionend", () => toast.remove());
     }, duracion);
 };
 
-const getToastClasses = (tipo) => {
-    const base = `
-    min-w-80 max-w-sm p-4 rounded-xl shadow-2xl text-white text-sm font-medium
-    transform transition-all duration-300 ease-out
-    translate-x-full opacity-0`;
 
-    const colors = {
-        success: 'bg-green-600',
-        error: 'bg-red-600',
-        warning: 'bg-yellow-600',
-        info: 'bg-blue-600',
-    };
 
-    return `${base} ${colors[tipo] || colors.info}`;
-};

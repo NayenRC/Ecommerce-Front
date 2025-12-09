@@ -32,21 +32,20 @@ const Login = () => {
 
             console.log("USUARIO LOGUEADO =>", res.data);
 
-
+            // 🔔 MENSAJE SUCCESS (tu toast personalizado)
             generarMensaje("Sesión iniciada correctamente", "success");
 
             const usuario = res.data;
-            console.log("USUARIO LOGUEADO =>", usuario);
-            console.log("ROL =>", usuario.rol);
-            console.log("ROL ID =>", usuario.rol?.rol_id);
             localStorage.setItem("user", JSON.stringify(usuario));
+
             if (usuario.rol?.rol_id === 1) {
-                navigate("/admin/dashboard"); 
+                navigate("/admin/dashboard");
             } else {
                 navigate("/");
             }
 
         } catch (error) {
+            // 🔔 MENSAJE ERROR (tu toast personalizado)
             generarMensaje("Credenciales incorrectas", "error");
         }
     };
