@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../../components/molecules/CartItem";
 import { useNavigate } from "react-router-dom";
+import { generarMensaje } from "../../utils/GenerarMensaje";
 import "../../styles/pages/Carrito.css";
 
 const Carrito = () => {
@@ -14,7 +15,7 @@ const Carrito = () => {
     const user = JSON.parse(localStorage.getItem("user"));
 
     if (!user) {
-      alert("Debes iniciar sesión para continuar");
+      generarMensaje("Debes iniciar sesión para continuar", "error");
       navigate("/login");
       return;
     }

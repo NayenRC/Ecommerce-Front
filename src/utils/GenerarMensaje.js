@@ -1,11 +1,11 @@
 let container = null;
 
 export const generarMensaje = (mensaje, tipo = "info", duracion = 3000) => {
-    // Crear contenedor una sola vez
+
     if (!container) {
         container = document.createElement("div");
         container.style.position = "fixed";
-        container.style.top = "180px"; // 👉 MÁS ABAJO DEL NAVBAR
+        container.style.top = "180px";
         container.style.left = "50%";
         container.style.transform = "translateX(-50%)";
         container.style.zIndex = "9999";
@@ -16,7 +16,6 @@ export const generarMensaje = (mensaje, tipo = "info", duracion = 3000) => {
         document.body.appendChild(container);
     }
 
-    // Crear el toast
     const toast = document.createElement("div");
     toast.style.padding = "16px 25px";
     toast.style.minWidth = "260px";
@@ -32,7 +31,7 @@ export const generarMensaje = (mensaje, tipo = "info", duracion = 3000) => {
 
     const colores = {
         success: "#56ca80ff",
-        error: "#d85858ff",
+        error: "#e83434ff",
         warning: "#d97706",
         info: "#2563eb",
     };
@@ -42,13 +41,11 @@ export const generarMensaje = (mensaje, tipo = "info", duracion = 3000) => {
 
     container.appendChild(toast);
 
-    // Animación de entrada
     setTimeout(() => {
         toast.style.opacity = "1";
         toast.style.transform = "translateY(0)";
     }, 10);
 
-    // Animación salida
     setTimeout(() => {
         toast.style.opacity = "0";
         toast.style.transform = "translateY(-20px)";

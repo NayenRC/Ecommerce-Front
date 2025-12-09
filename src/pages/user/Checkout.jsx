@@ -4,6 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 import CarritoService from "../../services/CarritoService";
 import MetodoPagoService from "../../services/MetodoPagoService";
 import { useNavigate } from "react-router-dom";
+import { generarMensaje } from "../../utils/GenerarMensaje";
 import "../../styles/pages/Checkout.css";
 
 export default function Checkout() {
@@ -30,7 +31,7 @@ export default function Checkout() {
 
     const handlePagar = async () => {
         if (!metodoSeleccionado) {
-            alert("Debes seleccionar un método de pago");
+            generarMensaje("Debes seleccionar un método de pago", "error");
             return;
         }
 
@@ -45,13 +46,16 @@ export default function Checkout() {
 
         try {
             await CarritoService.create(nuevoCarrito);
-            alert("Compra registrada correctamente ✔");
 
-            navigate("/");
+            generarMensaje("Compra registrada correctamente", "success");
+
+            setTimeout(() => {
+                navigate("/");
+            }, 1000);
 
         } catch (error) {
             console.error(error);
-            alert("Error al registrar la compra");
+            generarMensaje("Error al registrar la compra", "error");
         }
     };
 
@@ -111,3 +115,4 @@ export default function Checkout() {
         </div>
     );
 }
+
