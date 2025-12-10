@@ -26,25 +26,27 @@ const CartSidebar = () => {
   const handleCheckout = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/pagos/create-preference",
+        `${import.meta.env.VITE_API_URL}/api/pagos/create-preference`,
         {
-          items: cart.map(item => ({
+          items: cart.map((item) => ({
             title: item.nombre,
             quantity: item.cantidad,
             unit_price: item.precio,
           })),
         }
       );
-      console.log("Respuesta del backend:", response.data);
 
+      console.log("Respuesta del backend:", response.data);
 
       const urlPago = response.data.init_point;
       window.location.href = urlPago;
 
     } catch (error) {
       console.error("Error al iniciar pago:", error);
+      alert("Hubo un error iniciando el pago.");
     }
   };
+
 
   return (
     <>
