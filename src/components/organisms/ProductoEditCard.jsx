@@ -1,13 +1,13 @@
 import ProductoEditForm from "../molecules/ProductoEditForm";
 import Button from "../atoms/Button";
 
-function ProductoEditCard({ producto, handleChange, guardar, eliminar, volver }) {
+function ProductoEditCard({ producto, handleChange, guardar, eliminar, volver, categorias =[], }) {
   return (
     <div className="edit-card">
 
       <h1>Edición de Producto</h1>
 
-      <ProductoEditForm producto={producto} handleChange={handleChange} />
+      <ProductoEditForm producto={producto} handleChange={handleChange} categorias={categorias} />
 
       <div className="botones">
         <Button className="btn-volver" onClick={volver} text="Volver" />
