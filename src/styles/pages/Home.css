@@ -98,3 +98,30 @@
 .home-circle-btn:hover {
     transform: scale(1.05);
 }
+
+/* IMÁGENES RESPONSIVE */
+.home-card-img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+/* RESPONSIVE CARDS */
+@media (max-width: 768px) {
+    .productos-home-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-card {
+        width: 90%;
+    }
+
+    .home-circle-btn {
+        width: 180px;
+        height: 180px;
+        font-size: 20px;
+    }
+}
