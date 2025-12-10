@@ -21,7 +21,6 @@ function CarritoAdmin() {
     }
   };
 
-  // ----- MÉTRICAS -----
   const totalCarritos = carritos.length;
   const pendientes = carritos.filter(c => c.estado?.estadoId === 1).length;
   const aprobados = carritos.filter(c => c.estado?.estadoId === 2).length;
@@ -33,7 +32,6 @@ function CarritoAdmin() {
   return (
     <div className="carrito-admin-container">
 
-      {/* 🔥 TARJETAS DE RESUMEN */}
       <div className="resumen-container">
         <div className="resumen-card">
           <h3>Total Carritos</h3>
@@ -61,7 +59,6 @@ function CarritoAdmin() {
         </div>
       </div>
 
-      {/* 🔥 TABLA DE CARRITOS */}
       <h1 className="carritos-title">Carritos Registrados</h1>
 
       <div className="carritos-table">
