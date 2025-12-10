@@ -4,7 +4,7 @@ const axiosClient = axios.create({
     baseURL: "https://ecommerce-fp09.onrender.com/api/v1/",
 });
 
-// Interceptor para agregar el token automáticamente
+// Agregar el token automáticamente
 axiosClient.interceptors.request.use((config) => {
     const token = localStorage.getItem("token");
 

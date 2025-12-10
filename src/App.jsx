@@ -3,10 +3,11 @@ import { publicLinks } from './data/navbarPublicLinks';
 import { adminLinks } from './data/navbarAdminLinks';
 
 import Navbar from './components/organisms/Navbar';
+import ProtectedRoute from './routes/ProtectedRoute';
+import AdminRoute from './routes/AdminRoute';
 import CartSidebar from './components/organisms/CartSidebar';
 import Footer from './components/organisms/Footer';
 
-// USER pages
 import Home from './pages/user/Home';
 import Login from './pages/auth/login';
 import CreateUser from './pages/auth/create-user';
@@ -17,16 +18,11 @@ import DetalleProducto from './pages/user/DetalleProducto';
 import Carrito from './pages/user/Carrito';
 import Checkout from './pages/user/Checkout';
 
-// ADMIN pages
 import HomeAdmin from './pages/admin/HomeAdmin';
 import UsuarioAdmin from './pages/admin/UsuarioAdmin';
 import ProductoAdmin from "./pages/admin/ProductoAdmin";
 import ProductoEditAdmin from "./pages/admin/ProductoEditAdmin";
 import CarritoAdmin from './pages/admin/CarritoAdmin';
-
-// Rutas protegidas
-import ProtectedRoute from './routes/ProtectedRoute';
-import AdminRoute from './routes/AdminRoute';
 
 function Layout() {
   const location = useLocation();
@@ -36,9 +32,8 @@ function Layout() {
 
   return (
     <>
-      {/* NAVBAR */}
       {isAdminRoute ? (
-        <Navbar links={adminLinks} title="Admin Naves Front" />
+        <Navbar links={adminLinks} title="Admin 미지 Beauty" />
       ) : (
         shouldShowNavbarPublic && <Navbar links={publicLinks} title="미지 Beauty" />
       )}
@@ -46,10 +41,7 @@ function Layout() {
       <main>
         <CartSidebar />
 
-        {/* RUTAS */}
         <Routes>
-
-          {/* PUBLIC ROUTES */}
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create-user" element={<CreateUser />} />
@@ -59,16 +51,12 @@ function Layout() {
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/producto/:id" element={<DetalleProducto />} />
 
-          {/* USER PROTECTED ROUTES */}
-
           <Route path="/checkout" element={
             <ProtectedRoute>
               <Checkout />
             </ProtectedRoute>
           } />
 
-
-          {/* ADMIN ROUTES (solo rol 1) */}
           <Route path="/admin/dashboard" element={
             <AdminRoute>
               <HomeAdmin />
@@ -98,7 +86,6 @@ function Layout() {
               <CarritoAdmin />
             </AdminRoute>
           } />
-
 
           <Route path="*" element={<div>404 - Página no encontrada</div>} />
         </Routes>

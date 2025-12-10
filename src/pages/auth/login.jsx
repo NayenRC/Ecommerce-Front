@@ -15,7 +15,7 @@ const Login = () => {
     });
 
     const navigate = useNavigate();
-    const { login } = useAuth(); // ✅ CORRECCIÓN
+    const { login } = useAuth();
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -35,7 +35,7 @@ const Login = () => {
             generarMensaje("Sesión iniciada correctamente", "success");
 
             // Guardar token + usuario en AuthContext
-            login(res.data); // 🔥 AHORA SÍ FUNCIONA
+            login(res.data); 
 
             // Redirección por rol
             if (res.data.usuario.rol?.rol_id === 1) {
