@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Forms from "../../components/templates/Forms"
+import Forms from "../../components/templates/Forms";
 
 import UserService from "../../services/UsuarioService";
 import { generarMensaje } from "../../utils/GenerarMensaje";
 import "../../styles/pages/Login.css";
 import loginData from "./data/loginData";
+import { useAuth } from "../../context/AuthContext";
 
 const Login = () => {
     const [form, setForm] = useState({
@@ -14,6 +15,7 @@ const Login = () => {
     });
 
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -30,22 +32,19 @@ const Login = () => {
 
             const res = await UserService.login(credenciales);
 
-            console.log("USUARIO LOGUEADO =>", res.data);
-
-            // 🔔 MENSAJE SUCCESS (tu toast personalizado)
             generarMensaje("Sesión iniciada correctamente", "success");
 
-            const usuario = res.data;
-            localStorage.setItem("user", JSON.stringify(usuario));
+            // Guardar token + usuario en AuthContext
+            login(res.data); 
 
-            if (usuario.rol?.rol_id === 1) {
+            // Redirección por rol
+            if (res.data.usuario.rol?.rol_id === 1) {
                 navigate("/admin/dashboard");
             } else {
                 navigate("/");
             }
 
         } catch (error) {
-            // 🔔 MENSAJE ERROR (tu toast personalizado)
             generarMensaje("Credenciales incorrectas", "error");
         }
     };
@@ -71,3 +70,4 @@ const Login = () => {
 };
 
 export default Login;
+

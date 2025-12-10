@@ -1,26 +1,28 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { publicLinks } from './data/navbarPublicLinks';
 import { adminLinks } from './data/navbarAdminLinks';
+
 import Navbar from './components/organisms/Navbar';
+import ProtectedRoute from './routes/ProtectedRoute';
+import AdminRoute from './routes/AdminRoute';
+import CartSidebar from './components/organisms/CartSidebar';
+import Footer from './components/organisms/Footer';
 
 import Home from './pages/user/Home';
 import Login from './pages/auth/login';
 import CreateUser from './pages/auth/create-user';
-import HomeAdmin from './pages/admin/HomeAdmin';
 import Productos from './pages/user/Productos';
 import Contacto from './pages/user/Contacto';
 import Nosotros from './pages/user/Nosotros';
 import DetalleProducto from './pages/user/DetalleProducto';
-import Footer from './components/organisms/Footer';
+import Carrito from './pages/user/Carrito';
+import Checkout from './pages/user/Checkout';
+
+import HomeAdmin from './pages/admin/HomeAdmin';
 import UsuarioAdmin from './pages/admin/UsuarioAdmin';
 import ProductoAdmin from "./pages/admin/ProductoAdmin";
 import ProductoEditAdmin from "./pages/admin/ProductoEditAdmin";
-import Config from './routes/config';
-import Carrito from './pages/user/Carrito';
-import CartSidebar from './components/organisms/CartSidebar';
 import CarritoAdmin from './pages/admin/CarritoAdmin';
-import Checkout from './pages/user/Checkout';
-
 
 function Layout() {
   const location = useLocation();
@@ -31,13 +33,14 @@ function Layout() {
   return (
     <>
       {isAdminRoute ? (
-        <Navbar links={adminLinks} title="Admin Naves Front" />
+        <Navbar links={adminLinks} title="Admin 미지 Beauty" />
       ) : (
         shouldShowNavbarPublic && <Navbar links={publicLinks} title="미지 Beauty" />
       )}
 
       <main>
         <CartSidebar />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -45,40 +48,44 @@ function Layout() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/productos" element={<Productos />} />
-          <Route path="/producto/:id" element={<DetalleProducto />} />
           <Route path="/carrito" element={<Carrito />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/producto/:id" element={<DetalleProducto />} />
+
+          <Route path="/checkout" element={
+            <ProtectedRoute>
+              <Checkout />
+            </ProtectedRoute>
+          } />
+
           <Route path="/admin/dashboard" element={
-            <Config>
+            <AdminRoute>
               <HomeAdmin />
-            </Config>
+            </AdminRoute>
           } />
 
           <Route path="/admin/usuarios" element={
-            <Config>
+            <AdminRoute>
               <UsuarioAdmin />
-            </Config>
+            </AdminRoute>
           } />
-          
 
           <Route path="/admin/productos" element={
-            <Config>
+            <AdminRoute>
               <ProductoAdmin />
-            </Config>
+            </AdminRoute>
           } />
 
           <Route path="/admin/producto/:id" element={
-            <Config>
-              <ProductoEditAdmin/>
-            </Config>
+            <AdminRoute>
+              <ProductoEditAdmin />
+            </AdminRoute>
           } />
 
           <Route path="/admin/carritos" element={
-            <Config>
+            <AdminRoute>
               <CarritoAdmin />
-            </Config>
+            </AdminRoute>
           } />
-
 
           <Route path="*" element={<div>404 - Página no encontrada</div>} />
         </Routes>
@@ -94,3 +101,4 @@ function App() {
 }
 
 export default App;
+
